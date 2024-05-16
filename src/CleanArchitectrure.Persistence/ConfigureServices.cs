@@ -13,7 +13,7 @@ namespace CleanArchitectrure.Persistence
         public static IServiceCollection AddInjectionPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(opt =>
-                opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                opt.UseSqlServer(configuration.GetConnectionString("NorthwindConnection")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
