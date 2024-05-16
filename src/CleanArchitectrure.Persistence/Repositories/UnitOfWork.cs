@@ -7,18 +7,10 @@ namespace CleanArchitectrure.Persistence.Repositories
 {
     internal class UnitOfWork : IUnitOfWork
     {
-        public IUserRepository Users { get; }
-
-        public ICustomerRepository Customers { get; }
-
         private readonly AppDbContext _context;
 
-        public UnitOfWork(IUserRepository users, 
-                          ICustomerRepository customers,
-                          AppDbContext context)
+        public UnitOfWork(AppDbContext context)
         {
-            Users = users ?? throw new ArgumentNullException(nameof(users));
-            Customers = customers ?? throw new ArgumentNullException(nameof(customers));
             _context = context ?? throw new ArgumentNullException();
         }
 
