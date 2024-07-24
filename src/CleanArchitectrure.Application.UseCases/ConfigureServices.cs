@@ -8,7 +8,7 @@ namespace CleanArchitectrure.Application.UseCases
 {
     public static class ConfigureServices
     {
-        public static void AddInjectionApplication(this IServiceCollection services)
+        public static IServiceCollection AddInjectionApplication(this IServiceCollection services)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -17,6 +17,8 @@ namespace CleanArchitectrure.Application.UseCases
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
             services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
+
+            return services;
         }
     }
 }

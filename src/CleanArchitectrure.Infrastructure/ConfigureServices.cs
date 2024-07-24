@@ -1,4 +1,6 @@
-﻿using MassTransit;
+﻿using CleanArchitectrure.Domain.Commands;
+using CleanArchitectrure.Infrastructure.Consumers.Commands;
+using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,8 @@ namespace CleanArchitectrure.Infrastructure
         {
             services.AddMassTransit(x =>
             {
+                x.AddConsumer(typeof(ValidateUserConsumer));
+
                 //TODO configurasyonlar configden gelecek
                 x.UsingRabbitMq((ctx, cfg) =>
                 {
@@ -25,6 +29,9 @@ namespace CleanArchitectrure.Infrastructure
                     cfg.ConfigureEndpoints(ctx);
                 });
             });
+
+            //Automatically registered
+            //services.AddMassTransitHostedService();
 
             return services;
         }

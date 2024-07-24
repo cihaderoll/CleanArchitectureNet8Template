@@ -1,11 +1,7 @@
 ﻿using CleanArchitectrure.Application.Interface.Persistence;
+using CleanArchitectrure.Domain.Commands;
 using MassTransit;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchitectrure.Application.UseCases.Users.Queries.GetAll
 {
@@ -27,7 +23,9 @@ namespace CleanArchitectrure.Application.UseCases.Users.Queries.GetAll
 
         public async Task<GetAllUsersResponse> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await _publishEndpoint.Publish(new ValidateUser { Id = 1 }, cancellationToken);
+
+            return null;
         }
     }
 }

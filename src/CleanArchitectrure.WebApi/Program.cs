@@ -2,6 +2,7 @@ using CleanArchitectrure.Application.UseCases;
 using CleanArchitectrure.Persistence;
 using CleanArchitectrure.WebApi.Extensions.Middleware;
 using System.Configuration;
+using CleanArchitectrure.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,8 @@ builder.Services.AddSwaggerGen();
 //Add methods Extensions
 builder.Services
     .AddInjectionPersistence(builder.Configuration)
-    .AddInjectionApplication();
+    .AddInjectionApplication()
+    .ConfigureInfrastructure();
 
 var app = builder.Build();
 

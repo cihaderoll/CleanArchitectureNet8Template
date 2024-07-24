@@ -9,5 +9,6 @@ namespace CleanArchitectrure.Application.UseCases.Users.Queries.GetAll
 {
     public class GetAllUsersQuery : IRequest<GetAllUsersResponse>
     {
+        public int Id { get; set; }
     }
 }
