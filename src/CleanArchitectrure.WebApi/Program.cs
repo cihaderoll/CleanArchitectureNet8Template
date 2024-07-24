@@ -13,8 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Add methods Extensions
-builder.Services.AddInjectionPersistence(builder.Configuration);
-builder.Services.AddInjectionApplication();
+builder.Services
+    .AddInjectionPersistence(builder.Configuration)
+    .AddInjectionApplication();
 
 var app = builder.Build();
 
