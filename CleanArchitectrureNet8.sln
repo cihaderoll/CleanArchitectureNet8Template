@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectrure.Applicat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectrure.WebApi", "src\CleanArchitectrure.WebApi\CleanArchitectrure.WebApi.csproj", "{302BB139-613A-4890-852D-27BA1ED513EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectrure.Test", "CleanArchitectrure.Test\CleanArchitectrure.Test.csproj", "{EB0DABFC-9296-4673-A989-01811728E1CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectrure.Test", "CleanArchitectrure.Test\CleanArchitectrure.Test.csproj", "{EB0DABFC-9296-4673-A989-01811728E1CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3E8A34C2-1752-40A7-BEEB-3CFE6C327D41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,7 @@ Global
 		{26B71565-5154-4340-8DBB-23F36210197D} = {CCB80D23-75EB-4188-9E55-6BFDBAA1B435}
 		{E0013662-7F49-460E-8A01-1FC8A829FB6E} = {CCB80D23-75EB-4188-9E55-6BFDBAA1B435}
 		{302BB139-613A-4890-852D-27BA1ED513EC} = {EAFA6276-2FE7-43D1-B742-52FA30AF6464}
+		{EB0DABFC-9296-4673-A989-01811728E1CC} = {3E8A34C2-1752-40A7-BEEB-3CFE6C327D41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D012C1BE-A3E1-4779-9B2F-E48D92B45B81}

@@ -1,4 +1,5 @@
 ﻿using CleanArchitectrure.Application.Interface.Persistence;
+using CleanArchitectrure.Persistence.Contexts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace CleanArchitectrure.Persistence.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
+        private readonly AppDbContext _context;
+
+        public GenericRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public Task<bool> DeleteAsync(string id)
         {
             throw new NotImplementedException();
