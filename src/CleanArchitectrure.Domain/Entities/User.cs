@@ -1,8 +1,9 @@
-﻿namespace CleanArchitectrure.Domain.Entities
+﻿using CleanArchitectrure.Domain.Commons;
+
+namespace CleanArchitectrure.Domain.Entities
 {
-    public class User
+    public class User : EntityBase
     {
-        public int UserId { get; set; }
         public string? Company { get; set; }
         public string? Abbreviation { get; set; }
         public string Client { get; set; }

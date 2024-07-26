@@ -8,5 +8,6 @@ namespace CleanArchitectrure.Domain.Commons
 {
     public class EntityBase
     {
+        public int Id { get; set; }
     }
 }
