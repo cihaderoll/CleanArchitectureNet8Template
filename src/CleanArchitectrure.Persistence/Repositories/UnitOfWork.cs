@@ -8,6 +8,8 @@ namespace CleanArchitectrure.Persistence.Repositories
     internal class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
+        private IUserRepository _userRepository;
+        private ICustomerRepository _customerRepository;
 
         public UnitOfWork(AppDbContext context)
         {
@@ -28,5 +30,12 @@ namespace CleanArchitectrure.Persistence.Repositories
         {
             System.GC.SuppressFinalize(this);
         }
+
+        #region Repositories
+
+        public IUserRepository UserRepository => _userRepository ??= new UserRepository(_context);
+        public ICustomerRepository CustomerRepository => _customerRepository ??= new CustomerRepository(_context);
+
+        #endregion Repositories
     }
 }

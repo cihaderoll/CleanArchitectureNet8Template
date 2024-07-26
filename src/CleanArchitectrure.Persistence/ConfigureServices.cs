@@ -16,8 +16,8 @@ namespace CleanArchitectrure.Persistence
                 opt.UseSqlServer(configuration.GetConnectionString("NorthwindConnection")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            //services.AddScoped<IUserRepository, UserRepository>();
+            //services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             return services;
         }
