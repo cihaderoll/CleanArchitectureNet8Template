@@ -1,23 +1,22 @@
 ﻿using CleanArchitectrure.Application.Interface.Persistence;
+using CleanArchitectrure.Domain.Commons;
 using CleanArchitectrure.Persistence.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitectrure.Persistence.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : EntityBase
     {
-        private readonly AppDbContext _context;
+        protected readonly AppDbContext _ctx;
+        protected readonly DbSet<TEntity> _dbSet;
 
         public GenericRepository(AppDbContext context)
         {
-            _context = context;
+            _ctx = context;
+            _dbSet = _ctx.Set<TEntity>();
         }
 
-        public Task<bool> DeleteAsync(string id)
+        public Task DeleteAsync(string id)
         {
             throw new NotImplementedException();
         }
@@ -32,14 +31,14 @@ namespace CleanArchitectrure.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> InsertAsync(TEntity entity)
+        public async Task InsertAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity);
         }
 
-        public Task<bool> UpdateAsync(TEntity entity)
+        public void UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            _ctx.Entry(entity).State = EntityState.Modified;
         }
     }
 }

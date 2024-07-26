@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitectrure.Domain.Commons
 {
-    internal class EntityBase
+    public class EntityBase
     {
     }
 }
