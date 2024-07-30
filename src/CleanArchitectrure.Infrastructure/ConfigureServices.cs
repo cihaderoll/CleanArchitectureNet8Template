@@ -1,5 +1,7 @@
-﻿using CleanArchitectrure.Domain.Commands;
+﻿using CleanArchitectrure.Application.Interface.Infrastructure;
+using CleanArchitectrure.Domain.Commands;
 using CleanArchitectrure.Infrastructure.Consumers.Commands;
+using CleanArchitectrure.Infrastructure.Redis;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -32,6 +34,8 @@ namespace CleanArchitectrure.Infrastructure
 
             //Automatically registered
             //services.AddMassTransitHostedService();
+
+            services.AddTransient<IRedisClient, RedisClient>();
 
             return services;
         }
